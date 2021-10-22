@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :user
   resources :dogs
 
+  get "/me", to: "users#show"
+  post "/signup", to: "users#create"
   delete "/logout", to: "sessions#destroy"
   post "/login", to: "sessions#create"
   # Routing logic: fallback requests for React Router.

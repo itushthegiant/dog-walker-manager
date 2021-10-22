@@ -9,12 +9,17 @@ class UsersController < ApplicationController
     # create a user
     def create
         user = User.create!(user_params)
+        session[:user_id] = user.id
         render json: user, status: :created
     end
 
     # show user users/:id
     def show
-        render json: @user, status: :ok
+        if current_user
+            render json: current_user
+        else
+            render json: {}, :unauthorized
+        end
     end
 
     # update user users/:id
@@ -32,6 +37,6 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.permit(:username, :password)
+        params.permit(:username, :password, :password_confirmation)
     end
 end
