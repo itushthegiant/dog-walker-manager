@@ -3,7 +3,7 @@ class DogsController < ApplicationController
 
     # show all dogs
     def index
-        render json: Dog.all
+        render json: Dog.all, status: :ok
     end
 
     # create a dog
