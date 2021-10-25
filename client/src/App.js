@@ -1,24 +1,35 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Navibar from './components/Navibar'
-import Login from './components/Login'
-import Dogs from './components/Dogs'
-import SignUp from './components/SignUp'
+import baseUrl from './api/baseUrl'
+import AuthenticatedApp from './AuthenticatedApp'
+import UnauthenticatedApp from './UnauthenticatedApp'
+
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
-  const [authChecked, setAuthChecked] = useState(false)
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const response = await baseUrl.get('/me')
+      setCurrentUser(response.data)
+    }
+    fetchUser()
+  }, [])  
+
 
 
   return (
-    <div className="App">
-      <Router>
-        <Navibar />
-        <Switch>
-          <Route exact path='/' component={SignUp} />
-        </Switch>
-      </Router>
-    </div>
+    <Router>
+      {currentUser ? 
+      <AuthenticatedApp
+      setCurrentUser={setCurrentUser}
+      currentUser={currentUser}
+       />
+       : 
+      <UnauthenticatedApp />
+      }
+    </Router>
+    
   );
 }
 
