@@ -1,10 +1,11 @@
-import React, { useState, useHistory } from 'react'
+import React, { useState } from 'react'
 import baseUrl from '../api/baseUrl'
 import { Card, Form, Button } from 'react-bootstrap'
+import { useHistory } from 'react-router-dom'
 
 
 
-function Login() {
+function Login({ setCurrentUser }) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const history = useHistory()
@@ -15,11 +16,12 @@ function Login() {
             username,
             password
         })
-        .then((statusText) => {
-            if (statusText === 'OK') {
-                history.push('/dogs')
-            }
-        })
+            .then((data) => {
+                if (data.status === 200) {
+                    setCurrentUser(data)
+                    history.push('/')
+                }
+            })  
     }
 
 
@@ -31,7 +33,7 @@ function Login() {
                         <Form.Group className="mb-3" controlId="formBasicUsername">
                             <Form.Label>Username</Form.Label>
                             <Form.Control value={username} type="text" placeholder="Enter Username" onChange={(e) => setUsername(e.target.value)} required />
-                           
+
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="formBasicPassword">

@@ -2,18 +2,17 @@ import React from 'react'
 import Login from './components/Login'
 import SignUp from './components/SignUp'
 import { Route, Switch } from 'react-router-dom'
-import App from './App'
 
 
-function UnauthenticatedApp() {
+function UnauthenticatedApp({ setCurrentUser }) {
     return (
         <div>
             <Switch>
                 <Route exact path="/">
-                    <Login />
+                    <Login setCurrentUser={setCurrentUser} />
                 </Route>
                 <Route exact path="/signup">
-                    <SignUp />
+                    <SignUp setCurrentUser={setCurrentUser} />
                 </Route>
             </Switch>
         </div>

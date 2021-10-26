@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 import baseUrl from './api/baseUrl'
 import AuthenticatedApp from './AuthenticatedApp'
 import UnauthenticatedApp from './UnauthenticatedApp'
@@ -21,12 +21,14 @@ function App() {
   return (
     <Router>
       {currentUser ? 
-      <AuthenticatedApp
+      (<AuthenticatedApp
       setCurrentUser={setCurrentUser}
       currentUser={currentUser}
-       />
+       />)
        : 
-      <UnauthenticatedApp />
+      (<UnauthenticatedApp
+      setCurrentUser={setCurrentUser}
+       />)
       }
     </Router>
     

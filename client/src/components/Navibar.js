@@ -1,9 +1,9 @@
 import React from 'react'
-import { Container, Navbar, Nav } from 'react-bootstrap'
+import { Container, Navbar, Nav, Button } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDog } from '@fortawesome/free-solid-svg-icons'
 
-function Navibar({ handleLogout }) {
+function Navibar({ handleLogOut }) {
     return (
         <div>
             <Navbar bg="dark" variant="dark">
@@ -14,7 +14,7 @@ function Navibar({ handleLogout }) {
                     <Nav className="me-auto">
                         <Nav.Link href="#home">Home</Nav.Link>
                         <Nav.Link href="#features">Features</Nav.Link>
-                        <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+                        <Button variant="info" onClick={handleLogOut}>Logout</Button>
                     </Nav>
                 </Container>
             </Navbar>
