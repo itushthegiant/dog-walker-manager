@@ -19,12 +19,12 @@ function Login({ setCurrentUser }) {
             .then((data) => {
                 if (data.status === 200) {
                     setCurrentUser(data)
-                    history.push('/')
+                    history.push('/dogs')
                 }
             })  
     }
 
-
+    
     return (
         <div className="login-card">
             <Card className="mt-3" style={{ width: '18rem' }}>

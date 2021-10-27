@@ -8,8 +8,4 @@ Dog.destroy_all
 User.create(username: "etamar", password: "password")
 User.create(username: "yotam", password: "password")
 
-Dog.create(name: "Lily", age: 1, owner_name: "Etamar")
-Dog.create(name: "Brooklyn", age: 2, owner_name: "Yonatan")
-Dog.create(name: "River", age: 1, owner_name: "Maggie")
-Dog.create(name: "Lulu", age: 1, owner_name: "Chris")
-Dog.create(name: "Credit", age: 10, owner_name: "Andrew")
+Dog.create(name: "Lily", age: 1, owner_name: "Etamar", user_id: 30, breed: "pointer", img_url: "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12232937/German-Shorthaired-Pointer-On-White-08.jpg")

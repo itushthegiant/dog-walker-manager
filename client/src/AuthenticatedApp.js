@@ -8,19 +8,23 @@ function AuthenticatedApp({ setCurrentUser, currentUser }) {
 
     const history = useHistory()
 
-        const handleLogOut = async () => {
-            const res = await baseUrl.delete('logout')
-            if (res.status === 204) {
-                setCurrentUser(null)
-                history.push('/')
-            }
+    const handleLogOut = async () => {
+        const res = await baseUrl.delete('logout')
+        if (res.status === 204) {
+            setCurrentUser(null)
+            history.push('/')
         }
+    }
 
 
     return (
         <div>
-            <Navibar handleLogOut={handleLogOut}  />
-            <Dogs />
+            <Navibar handleLogOut={handleLogOut} />
+            <Switch>
+                <Route exact path="/dogs">
+                    <Dogs />
+                </Route>
+            </Switch>
         </div>
     )
 }

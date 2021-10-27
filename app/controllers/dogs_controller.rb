@@ -1,5 +1,6 @@
 class DogsController < ApplicationController
     before_action :find_dog, except: [:create, :index]
+    before_action :current_user
 
     # show all dogs
     def index
