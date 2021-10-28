@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :user
+  resources :users
   resources :dogs
 
   get "/me", to: "users#show"

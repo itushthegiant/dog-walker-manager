@@ -10,10 +10,10 @@ function UnauthenticatedApp({ setCurrentUser }) {
         <div>
             <Navibar />
             <Switch>
-                <Route exact path="/">
+                <Route exact path="/home">
                     <Login setCurrentUser={setCurrentUser} />
                 </Route>
-                <Route exact path="/">
+                <Route exact path="/home">
                     <SignUp setCurrentUser={setCurrentUser} />
                 </Route>
             </Switch>

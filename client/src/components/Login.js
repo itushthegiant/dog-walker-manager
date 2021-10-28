@@ -14,8 +14,9 @@ function Login({ setCurrentUser }) {
         e.preventDefault()
         baseUrl.post('login', {
             username,
-            password
+            password,
         })
+        
             .then((data) => {
                 if (data.status === 200) {
                     setCurrentUser(data)
@@ -24,7 +25,7 @@ function Login({ setCurrentUser }) {
             })  
     }
 
-    
+
     return (
         <div className="login-card">
             <Card className="mt-3" style={{ width: '18rem' }}>

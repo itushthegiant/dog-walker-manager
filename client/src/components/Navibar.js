@@ -8,7 +8,7 @@ function Navibar({ handleLogOut }) {
         <div>
             <Navbar bg="dark" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home">
+                    <Navbar.Brand href="/home">
                         <FontAwesomeIcon icon={faDog} className="dog-icon" />Dog Walker Manager
                     </Navbar.Brand>
                     <Nav className="me-auto">

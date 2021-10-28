@@ -7,6 +7,7 @@ function Dogs() {
 
     const [dogs, setDogs] = useState([])
 
+
     useEffect(() => {
         const fetchDogs = async () => {
             const response = await baseUrl.get('/dogs')
