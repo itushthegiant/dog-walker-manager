@@ -16,6 +16,7 @@ function Dogs() {
         fetchDogs()
     }, [])
 
+
     const showDogs = () => {
         return dogs.map(dog => {
             return <DogCard key={dog.id} dog={dog} />
