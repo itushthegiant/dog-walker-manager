@@ -12,8 +12,8 @@ function Navibar({ handleLogOut }) {
                         <FontAwesomeIcon icon={faDog} className="dog-icon" />Dog Walker Manager
                     </Navbar.Brand>
                     <Nav className="me-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#features">Features</Nav.Link>
+                        <Nav.Link href="/add-dog">Add a Dog</Nav.Link>
+                        <Nav.Link href="/dogs">Dogs</Nav.Link>
                         <Button variant="info" onClick={handleLogOut}>Logout</Button>
                     </Nav>
                 </Container>

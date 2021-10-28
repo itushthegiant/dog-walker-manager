@@ -1,4 +1,5 @@
 import React from 'react'
+import AddADog from './components/AddADog'
 import baseUrl from './api/baseUrl'
 import Navibar from './components/Navibar'
 import Dogs from './components/Dogs'
@@ -23,6 +24,9 @@ function AuthenticatedApp({ setCurrentUser, currentUser }) {
             <Switch>
                 <Route exact path="/dogs">
                     <Dogs />
+                </Route>
+                <Route exact path="/add-dog">
+                    <AddADog />
                 </Route>
             </Switch>
         </div>
